@@ -1,0 +1,10 @@
+
+#ifdef EXAMPLE
+console.log('example')
+#endif
+
+??=ifdef ANOTHER_EXAMPLE
+console.log('another example')
+??=endif
+
+console.log('hello, world!')

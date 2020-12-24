@@ -1,0 +1,29 @@
+{
+  "name": "urgh",
+  "version": "0.0.0",
+  "description": "c preprocessor require hook",
+  "keywords": [
+    "cpp",
+    "c",
+    "preprocessor",
+    "macro",
+    "macros"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "test": "uvu test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "pirates": "4.0.1"
+  },
+  "devDependencies": {
+    "sinon": "9.2.2",
+    "uglify-js": "3.12.3",
+    "uvu": "0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skibz/urgh.git"
+  }
+}

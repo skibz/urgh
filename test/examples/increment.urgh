@@ -1,0 +1,6 @@
+
+#define increment(i) do { ++i; console.log(i) } while (0)
+
+var foo = 2
+
+increment(foo)

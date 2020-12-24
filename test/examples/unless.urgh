@@ -1,0 +1,11 @@
+
+#define unless(predicate) if (!predicate)
+
+var foo = 0
+var bar = 1
+
+unless(foo) {
+  console.log(bar)
+} else {
+  console.log(foo)
+}

@@ -1,0 +1,12 @@
+
+#define until(predicate) while (!predicate)
+
+var foo = 0
+var bar = 0
+
+until(bar) {
+  bar++
+  console.log(foo)
+}
+
+console.log(foo)
