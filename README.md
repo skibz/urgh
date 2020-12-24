@@ -27,6 +27,30 @@ this module doesn't take care of installing a standards-compliant c preprocessor
 npm install --save urgh
 ```
 
+and then...
+
+```javascript
+var urgh = require('urgh')
+
+// your environment variables automatically become preprocessor defines
+process.env.FOO = 'foo'
+
+// constructing the require hook returns the destructor
+var disable = urgh()
+
+// after calling urgh() you can write c preprocessor directives and macros
+
+#ifdef FOO
+console.log(FOO)
+#endif
+
+#include "some-file.js"
+#include "some-other-file.urgh"
+
+// and then optionally disable urgh
+disable()
+```
+
 ## todo
 
 * export a binary for aot compilation
