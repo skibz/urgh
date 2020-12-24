@@ -1,13 +1,9 @@
 
 var {addHook} = require('pirates')
 
-var dirt = require('./urgh')
+var urgh = require('./urgh')
 
 module.exports = function() {
-  return addHook(dirt, {
-    exts: [
-      '.urgh'
-    ]
-  })
+  return addHook(urgh, {exts: ['.urgh']})
 }
 
