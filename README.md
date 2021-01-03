@@ -38,7 +38,15 @@ process.env.FOO = 'foo'
 // constructing the require hook returns the destructor
 var disable = urgh()
 
-// after calling urgh() you can write c preprocessor directives and macros
+// after calling urgh() you can require files containing c preprocessor directives and macros
+require('./foo.urgh')
+
+// and then optionally disable urgh
+disable()
+```
+
+```c
+// foo.urgh
 
 #ifdef FOO
 console.log(FOO)
@@ -46,9 +54,6 @@ console.log(FOO)
 
 #include "some-file.js"
 #include "some-other-file.urgh"
-
-// and then optionally disable urgh
-disable()
 ```
 
 ## todo
