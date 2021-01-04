@@ -1,5 +1,6 @@
 
 var fs = require('fs')
+var cp = require('child_process')
 
 var {AssertionError} = require('assert')
 
@@ -206,3 +207,37 @@ pkg('should expand function macros correctly: until macro', function(ctx) {
 })
 
 pkg.run()
+
+var bin = suite('binary', {
+  expected: 'console.log("example"),console.log("hello, world!");'
+})
+
+bin('should invoke the c preprocessor on stdin input', function(ctx) {
+
+  cp.exec('cat test/examples/hello-world.urgh | EXAMPLE=1 src/bin.js', {
+    maxBuffer: Infinity
+  }, function(err, sout, serr) {
+    if (err) throw err
+    if (serr.length) {
+      throw new AssertionError({
+        message: 'transformation does not match after minification',
+        actual: serr,
+        expected: ctx.expected,
+        operator: '==='
+      })
+    }
+
+    var minified = uglify.minify(sout, {mangle: false})
+    if (minified.error) throw minified.error
+    if (minified.code !== ctx.expected) {
+      throw new AssertionError({
+        message: 'transformation does not match after minification',
+        actual: minified.code,
+        expected: ctx.expected,
+        operator: '==='
+      })
+    }
+  })
+})
+
+bin.run()

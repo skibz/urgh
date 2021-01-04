@@ -56,6 +56,8 @@ console.log(FOO)
 #include "some-other-file.urgh"
 ```
 
-## todo
+or preprocess your source files ahead-of-time...
 
-* export a binary for aot compilation
+```sh
+urgh < foo.urgh > foo.js
+```

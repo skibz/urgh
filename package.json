@@ -10,6 +10,7 @@
     "macros"
   ],
   "main": "src/index.js",
+  "bin": "./src/bin.js",
   "scripts": {
     "test": "uvu test"
   },
